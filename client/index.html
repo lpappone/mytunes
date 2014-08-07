@@ -6,6 +6,9 @@
     <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/backbone/backbone.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
 
     <script src="data/data.js"></script>
 
@@ -18,19 +21,34 @@
     <script src="views/LibraryView.js"></script>
     <script src="views/LibraryEntryView.js"></script>
     <script src="views/AppView.js"></script>
+    <script src="views/SongQueueView.js"></script>
+    <script src="views/SongQueueEntryView.js"></script>
 
     <script>
       $(function(){
         // set up model objects
         var library = new Songs(songData);
+        var songQueue = new SongQueue
         var app = new AppModel({library: library});
 
         // build a view for the top level of the whole app
         var appView = new AppView({model: app});
 
         // put the view onto the screen
-        $('body').append(appView.render());
+        $('.row').append(appView.render());
       });
     </script>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-brand">Spotify</div>
+            </div>
+            <div class="navbar-collapse collapse"></div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row"></div>
+    </div>
   </body>
 </html>
